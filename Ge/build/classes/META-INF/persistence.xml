@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+	<persistence-unit name="Ge">
+		<class>model.TbMFeature</class>
+		<class>model.TbMMenu</class>
+		<class>model.TbMMenuFeat</class>
+		<class>model.TbMMenuFeatPK</class>
+		<class>model.TbMRole</class>
+		<class>model.TbMRoleMenu</class>
+		<class>model.TbMRoleMenuPK</class>
+		<class>model.TbMRoleMenuFeat</class>
+		<class>model.TbMRoleMenuFeatPK</class>
+		<class>model.TbMSystem</class>
+		<class>model.TbMSystemType</class>
+		<class>model.TbMUser</class>
+		<class>model.TbMUserRole</class>
+		<class>model.TbMUserRolePK</class>
+	</persistence-unit>
+</persistence>
