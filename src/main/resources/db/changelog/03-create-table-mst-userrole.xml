@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="03" author="agungcode">
+		<createTable tableName="tb_m_user_role" remarks="User Role Table">
+			<column name="username" type="varchar(70)" >
+				<constraints nullable="false" />
+			</column>
+			<column name="role_cd" type="bigint" >
+				<constraints nullable="false" />
+			</column>
+			<column name="deleted_flag" type="bool">
+				<constraints nullable="false" />
+			</column>
+			<column name="created_by" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="created_dt" type="timestamp">
+				<constraints nullable="false" />
+			</column>
+			<column name="changed_by" type="varchar(50)">
+				<constraints nullable="true" />
+			</column>
+			<column name="changed_dt" type="timestamp">
+				<constraints nullable="true" />
+			</column>
+		</createTable>
+		
+		<addPrimaryKey tableName="tb_m_user_role" columnNames="username,role_cd"
+                constraintName="tb_m_user_role_pk" />
+                
+		<addForeignKeyConstraint
+			baseTableName="tb_m_user_role" baseColumnNames="username"
+			constraintName="fk01_tb_m_user_role_d_tb_m_role" referencedTableName="tb_m_user"
+			referencedColumnNames="username" />
+			
+		<addForeignKeyConstraint
+			baseTableName="tb_m_user_role" baseColumnNames="role_cd"
+			constraintName="fk02_tb_m_user_role_d_tb_m_role" referencedTableName="tb_m_role"
+			referencedColumnNames="role_cd" />
+			
+	</changeSet>
+</databaseChangeLog>
