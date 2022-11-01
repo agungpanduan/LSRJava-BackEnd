@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+	<changeSet id="02" author="agungcode">
+		<preConditions onFail="MARK_RAN">
+        <not>
+            <tableExists tableName="tb_m_role"/>
+        </not>
+   		 </preConditions>
+		<createTable tableName="tb_m_role" remarks="Role Table">
+			<column name="role_cd" type="bigint" autoIncrement="true">
+				<constraints nullable="false" primaryKey="true"/>
+			</column>
+			<column name="role_name" type="varchar(100)">
+				<constraints nullable="false" unique="true" />
+			</column>	
+			<column name="role_desc" type="varchar(250)">
+				<constraints nullable="true" />
+			</column>
+			<column name="deleted_flag" type="bool">
+				<constraints nullable="true" />
+			</column>
+			<column name="created_by" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="created_dt" type="timestamp">
+				<constraints nullable="false" />
+			</column>
+			<column name="changed_by" type="varchar(50)">
+				<constraints nullable="true" />
+			</column>
+			<column name="changed_dt" type="timestamp">
+				<constraints nullable="true" />
+			</column>
+		</createTable>
+			
+	</changeSet>
+</databaseChangeLog>
