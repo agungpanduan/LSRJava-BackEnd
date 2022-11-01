@@ -14,7 +14,9 @@ import org.springframework.data.repository.query.Param;
 
 import com.lsr.entity.user.User;
 import com.lsr.vo.user.UserVo;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface UserRepository extends PagingAndSortingRepository<User, Long> {
 	@Query(value = " select tmur.username, tmur.role_cd roleCd,tmr.role_name roleName,us.fullname fullName,us.email, tmrmf.menu_cd menuCd, tmrmf.feature_cd featureCd, tmm.menu_name menuName,tmm.menu_desc menuDesc, tmm.Icon iCon, tmm.\"Action\" as acTion, enabled enableD, \"locked\" as lockeD from tb_m_role_menu_feat tmrmf "
 				 + " inner join tb_m_user_role tmur on tmrmf.role_cd = tmur.role_cd"
